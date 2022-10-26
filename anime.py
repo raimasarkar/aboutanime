@@ -39,8 +39,9 @@ text_input2 = st.text_input("What got you into Anime?")
 text_input3 = st.text_input("What is your favourite anime series?")
 text_input4 = st.text_input("What is your favourite anime character?")
 tab1, tab2, tab3 = st.tabs(["Nothing","Anime Production", "Anime Stats"])
+st.write('Click below to see graphs:')
 with tab1:
-    st.write('Choose to see graphs.Ignore if you dont want to see any graph')
+    st.write('Ignore if you dont want to see any graph')
 with tab2:
     from bokeh.plotting import figure
     st.subheader('Graph showing the growth of Anime over the years:')
