@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import time
 from datetime import datetime
-import matplotlib.pyplot as plt
-from bokeh.plotting import figure
 from PIL import Image
 
 st.markdown('<style>description{color: grey;}</style>',unsafe_allow_html=True)
@@ -40,26 +38,28 @@ text_input1 = st.text_input("What is your name?")
 text_input2 = st.text_input("What got you into Anime?")
 text_input3 = st.text_input("What is your favourite anime series?")
 text_input4 = st.text_input("What is your favourite anime character?")
-
-st.subheader('Graph showing the growth of Anime over the years:')
-x = [1997, 1998, 1999, 2000, 2001,2002,2003,2004,2005,2007,2008]
-y = [150, 152, 153, 140,230,250,276,246,301,302,254]
-
-p = figure(title='growth of anime:',
-x_axis_label='x',
-y_axis_label='y')
-p.line(x, y, legend_label='Growth', line_width=2)
-st.bokeh_chart(p, use_container_width=True)
-
-
-st.subheader('Anime Statistics')
-labels = ['Action','Super Power','Adventure','Comedy','Fantasy','Horror','Vampire']
-sizes = [84,64,49,40,29,24,22]
-
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%',startangle=90)
-ax1.axis('equal')  
-st.pyplot(fig1)
+tab1, tab2, tab3 = st.tabs(["Nothing","Anime Production", "Anime Stats"])
+with tab1:
+    st.write('Choose to see graphs.Ignore if you dont want to see any graph')
+with tab2:
+    from bokeh.plotting import figure
+    st.subheader('Graph showing the growth of Anime over the years:')
+    x = [1997, 1998, 1999, 2000, 2001,2002,2003,2004,2005,2007,2008]
+    y = [150, 152, 153, 140,230,250,276,246,301,302,254]
+    p = figure(title='growth of anime:',
+    x_axis_label='x',
+    y_axis_label='y')
+    p.line(x, y, legend_label='Growth', line_width=2)
+    st.bokeh_chart(p, use_container_width=True)
+with tab3:
+    import matplotlib.pyplot as plt
+    st.subheader('Anime Statistics')
+    labels = ['Action','Super Power','Adventure','Comedy','Fantasy','Horror','Vampire']
+    sizes = [84,64,49,40,29,24,22]
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, labels=labels, autopct='%1.1f%%',startangle=90)
+    ax1.axis('equal')  
+    st.pyplot(fig1)
 
 
 option = st.selectbox(
