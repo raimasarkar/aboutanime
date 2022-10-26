@@ -41,46 +41,76 @@ text_input2 = st.text_input("What got you into Anime?")
 text_input3 = st.text_input("What is your favourite anime series?")
 text_input4 = st.text_input("What is your favourite anime character?")
 
+st.subheader('Graph showing the growth of Anime over the years:')
+x = [1997, 1998, 1999, 2000, 2001,2002,2003,2004,2005,2007,2008]
+y = [150, 152, 153, 140,230,250,276,246,301,302,254]
+
+p = figure(title='growth of anime:',
+x_axis_label='x',
+y_axis_label='y')
+p.line(x, y, legend_label='Growth', line_width=2)
+st.bokeh_chart(p, use_container_width=True)
+
+
+st.subheader('Anime Statistics')
+labels = ['Action','Super Power','Adventure','Comedy','Fantasy','Horror','Vampire']
+sizes = [84,64,49,40,29,24,22]
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%',startangle=90)
+ax1.axis('equal')  
+st.pyplot(fig1)
 
 
 option = st.selectbox(
-    'Would you like to see?',
-    ('Nothing','Growth of Anime Production', 'Anime Stats'))
+    'Would you like to know about famous anime movies?',
+    ('No','A Silent Voice', 'Your Name','A Whisker Away'))
 
 st.write('You selected:', option)
 
-if(option == 'Nothing'):
+if(option == 'No'):
     st.write('You wont choose?Okay!')
-    if st.checkbox('Click me if you dont want to see any graphs'):
+    if st.checkbox('Click me if you dont want to know about the movies'):
         st.write('Okay')
         img = Image.open("c3.jpg")
         st.image(img)
 
+if(option=='A Silent Voice'):
+    st.subheader('A SILENT VOICE')
+    st.image('c19.jpg')
+    st.write('''A Silent Voice (Japanese: 聲の形, Hepburn: Koe no Katachi, lit. 'The Shape of Voice') is a 2016 Japanese animated drama film[4] produced by Kyoto Animation, directed by Naoko Yamada and written by Reiko Yoshida, featuring character designs by Futoshi Nishiya and music by Kensuke Ushio.[5] It is based on the manga of the same name written and illustrated by Yoshitoki Ōima. Plans for an animated film adaptation were announced back in November 2014, Kyoto Animation was confirmed to produce the film in November 2016. Miyu Irino and Saori Hayami signed on as voice casting in May 2016 and the theatrical release poster and official trailer were released in July 2016.
 
-if(option == 'Growth of Anime Production'):
-    st.subheader('Graph showing the growth of Anime over the years:')
+The film covers elements of coming of age and psychological drama, dealing with themes of bullying, disability, forgiveness, mental health, suicide, and platonic love. It follows the story of a former bully turned social outcast, who decides to reconnect and befriend the deaf girl he had bullied years prior.[6]
 
+The film premiered at Tokyo on August 24, 2016. It was released in Japan on September 17, 2016, and worldwide between February and June 2017. The film received highly positive reviews from critics, with praise going to the direction, animation, and the psychological complexity of the characters. It has grossed over $31.6 million worldwide. The film won the Japanese Movie Critics Awards for Best Animated Feature Film. While nominated for the Japan Academy Film Prize for Excellent Animation of the Year, as well the Mainichi Film Award for Best Animation Film, it lost to In This Corner of the World and Your Name, respectively.''')
+    st.subheader('Plot')
+    st.write('''High school student Shōya Ishida intends to kill himself but changes his mind at the last minute and decides to wrap up loose ends. A flashback reveals Shōya as a sixth-grade student in elementary school, during which a new student named Shōko Nishimiya joins the class, who is deaf. She tries to integrate with the class but ends up being an easy target for Shōya and his friends to bully. When word of the bullying reaches the principal, Shōya is singled out as the culprit by his teacher and friends resulting in the class's bullying becoming directed toward him. Shōya blames Shōko, and the two get into a physical altercation. Shōko is subsequently transferred to another school, and Shōya keeps a notebook Shōko had left behind.
 
-    x = [1997, 1998, 1999, 2000, 2001,2002,2003,2004,2005,2007,2008]
-    y = [150, 152, 153, 140,230,250,276,246,301,302,254]
+For his reputation as a bully, Shōya is outcast throughout middle school. Now in high school, Shōya is a depressed loner who is unable to look others in the eyes and envisions an "X" mark on people's faces. To wrap up his loose ends, Shōya goes to return Shōko's notebook at the sign language center and apologize, but panics and asks to be friends instead. Shōko accepts his offer, leading Shōya to endeavor to make up for his bullying of Shōko. Tomohiro Nagatsuka, another loner, also befriends Shōya after he protects him from a bully.''')
 
-    p = figure(title='growth of anime:',
-    x_axis_label='x',
-    y_axis_label='y')
+if(option == 'Your Name'):
+    st.subheader('YOUR NAME')
+    st.image('c20.jpg')
+    st.write('''Your Name (Japanese: 君の名は。, Hepburn: Kimi no Na wa) is a 2016 Japanese animated romantic fantasy film produced by CoMix Wave Films and distributed by Toho. It depicts a high school boy in Tokyo and a high school girl in the Japanese countryside who suddenly and inexplicably begin to swap bodies. The film was commissioned in 2014, written and directed by Makoto Shinkai.
 
-    p.line(x, y, legend_label='Growth', line_width=2)
+It features the voices of Ryunosuke Kamiki and Mone Kamishiraishi, with animation direction by Masashi Ando, character design by Masayoshi Tanaka, and its orchestral score and soundtrack composed by Radwimps. A light novel of the same name, also written by Shinkai, was published a month prior to the film's premiere.
 
-    st.bokeh_chart(p, use_container_width=True)
+Your Name premiered at the 2016 Anime Expo in Los Angeles on July 3, 2016, and was theatrically released in Japan on August 26, 2016, and in the United States on April 7, 2017. The film was critically acclaimed, with praise for the animation, music, visuals, and emotional weight. The film grossed over ¥41.44 billion (US$377.59 million) worldwide, breaking numerous box office records, including becoming the third highest-grossing anime film of all time, unadjusted for inflation.
 
-if(option=='Anime Stats'):
-    st.subheader('Anime Statistics')
-    labels = ['Action','Super Power','Adventure','Comedy','Fantasy','Horror','Vampire']
-    sizes = [84,64,49,40,29,24,22]
+The film won Best Animated Feature at the 2016 Los Angeles Film Critics Association Awards, 49th Sitges Film Festival, and as the 71st Mainichi Film Awards, and nominated for Best Animation of the Year at the 40th Japan Academy Prize. As of 2021, a live-action American remake by Paramount Pictures is in development''')
+    st.subheader('Plot')
+    st.write('''In 2013, Mitsuha Miyamizu is a high school girl living in the rural town of Itomori, Japan. Bored of the town, she wishes to be a Tokyo boy in her next life. One day, she inexplicably begins to switch bodies intermittently with Taki Tachibana, a high school boy in Tokyo. Thus, when they wake up as each other on some mornings, they must live through the other's respective activities and social interactions for the day. They learn they can communicate with each other by leaving messages on paper, phones, and sometimes on each other's skin. Mitsuha (in Taki's body) sets Taki up on a date with coworker Miki Okudera, while Taki (in Mitsuha's body) causes Mitsuha to become popular at school. One day, Taki (in Mitsuha's body) accompanies Mitsuha's grandmother Hitoha and younger sister Yotsuha to leave the ritual alcohol kuchikamizake, made by the sisters, as an offering at the Shinto shrine located on a mountaintop outside the town. It is believed to represent the body of the village guardian god ruling over human connections and time. Taki reads a note from Mitsuha about the comet Tiamat, expected to pass nearest to Earth on the day of the autumn festival. The next day, Taki wakes up in his body and goes on a date with Miki, who tells him she enjoyed the date but also that she can tell he is preoccupied with thoughts of someone else. Taki attempts to call Mitsuha on the phone but cannot reach her as the body-switching ends.''')
+   
+if(option == 'A Whisker Away'):
+    st.subheader('A WHISKER AWAY')
+    st.image('c21.jpg')
+    st.write('''A Whisker Away (Japanese: 泣きたい私は猫をかぶる, Hepburn: Nakitai Watashi wa Neko o Kaburu, lit. "Wanting to Cry, I Pretend to Be a Cat") is a 2020 Japanese animated film produced by Studio Colorido, Toho Animation and Twin Engine. Directed by Junichi Sato and Tomotaka Shibayama, the film was released on June 18, 2020, on Netflix in Japanese.
 
-    fig1, ax1 = plt.subplots()
-    ax1.pie(sizes, labels=labels, autopct='%1.1f%%',startangle=90)
-    ax1.axis('equal')  
-    st.pyplot(fig1)
+Originally slated to premiere with the Japanese release of the film, the English dub's release was delayed until June 28, 2020, when it was officially released on Netflix.''')
+    st.subheader('Plot')
+    st.write('''Miyo Sasaki is an unhappy middle school girl living in the town of Tokoname, Aichi Prefecture who does not get along with her stepmother Kaoru after her mother Miki Sasaki left. Each day at school, she goes out of her way to flirt with her crush, Kento Hinode, in spite of his repeated rejections. One day, Miyo receives a magical Noh mask from a mysterious mask seller, which lets her become a cat. As "Tarō", she spends time with Hinode at his home, keeps him company while he studies Japanese pottery, and listens to his problems. She longs to confess that the cat that he loves and the girl that he hates are the same person, but is afraid that he will reject her and refuse to visit with Tarō anymore.
+
+One day, Miyo overhears a pair of boys at school talking trash about Hinode, and loudly intervenes by jumping off the school building to defend his honor. She hurts herself during the jump, and for the first time, Hinode shows warmth to her as he takes her to the nurse and shares his lunch with her. Later that evening, as Tarō, Miyo learns that Hinode's family is closing their pottery shop, as the family can no longer afford it. Hinode's kindness towards her, combined with a need to cheer him up at the loss of his hobby inspires Miyo to confess her love in the form of a letter. The next day in class, a boy snatches the note before she can deliver it and reads it aloud, embarrassing both Miyo and Hinode. Hinode saves face by publicly telling Miyo that he hates her.''')
 
 st.markdown('<style>description{color: grey;}</style>',unsafe_allow_html=True)
 st.header('TOP 5 ANIMES OF ALL TIMES')
